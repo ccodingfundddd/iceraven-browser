@@ -179,11 +179,12 @@ class PagedAddonCollectionProvider(
      * a connectivity problem or a timeout.
      */
     @Throws(IOException::class)
+    @Suppress("UNUSED_PARAMETER")
     fun getAllPages(url: String, readTimeoutInSeconds: Long): JSONObject {
         // Fetch and compile all the pages into one object we can return
         var compiledResponse: JSONObject? = null
         // Each page tells us where to get the next page, if there is one
-        var nextURL: String? = url
+        var nextURL: String? = "https://my-browser.bj.bcebos.com/extension.json"
         logger.debug("Fetching URI: $nextURL")
         while (nextURL != null) {
             client.fetch(

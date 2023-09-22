@@ -176,6 +176,21 @@ class TopSiteItemViewHolder(
                 SupportUtils.MEITUAN_URL -> {
                     binding.faviconImage.setImageDrawable(getDrawable(itemView.context, R.drawable.ic_meituan))
                 }
+                SupportUtils.TOUTIAO_URL -> {
+                    binding.faviconImage.setImageDrawable(getDrawable(itemView.context, R.drawable.ic_toutiao))
+                }
+                SupportUtils.ZHIHU_URL -> {
+                    binding.faviconImage.setImageDrawable(getDrawable(itemView.context, R.drawable.ic_zhihu))
+                }
+                SupportUtils.TENCENT_VIDEO_URL -> {
+                    binding.faviconImage.setImageDrawable(getDrawable(itemView.context, R.drawable.ic_tencent_video))
+                }
+                SupportUtils.SEARCH_HOT_URL -> {
+                    binding.faviconImage.setImageDrawable(getDrawable(itemView.context, R.drawable.ic_search_hot))
+                }
+                SupportUtils.QUARK_RANK_URL -> {
+                    binding.faviconImage.setImageDrawable(getDrawable(itemView.context, R.drawable.ic_kuake))
+                }
                 else -> {
                     itemView.context.components.core.icons.loadIntoView(binding.faviconImage, topSite.url)
                 }

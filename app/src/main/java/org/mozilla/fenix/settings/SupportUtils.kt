@@ -27,7 +27,7 @@ object SupportUtils {
     const val WIKIPEDIA_URL = "https://www.wikipedia.org/"
     const val FENIX_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
     const val GOOGLE_URL = "https://www.google.com/"
-    const val BAIDU_URL = "https://m.baidu.com/"
+    const val BAIDU_URL = "https://m.baidu.com/#"
     const val JD_URL = "https://union-click.jd.com/jdc" +
         "?e=&p=AyIGZRprFDJWWA1FBCVbV0IUWVALHFRBEwQAQB1AWQkFVUVXfFkAF14lRFRbJXstVWR3WQ1rJ08AZnhS" +
         "HDJBYh4LZR9eEAMUBlccWCUBEQZRGFoXCxc3ZRteJUl8BmUZWhQ" +
@@ -39,6 +39,16 @@ object SupportUtils {
     const val GOOGLE_US_URL = "https://www.google.com/webhp?client=firefox-b-1-m&channel=ts"
     const val GOOGLE_XX_URL = "https://www.google.com/webhp?client=firefox-b-m&channel=ts"
     const val WHATS_NEW_URL = "https://github.com/fork-maintainers/iceraven-browser/releases"
+
+    const val CN_BING_URL = "https://www.bing.com/";
+    const val TOUTIAO_URL = "https://m.toutiao.com/?W2atIF=1";
+    const val ZHIHU_URL = "https://www.zhihu.com/knowledge-plan/hot-question/hot/0/day?utm_id=0";
+    const val GREASY_FORK_URL = "https://greasyfork.org/zh-CN/";
+    const val TENCENT_VIDEO_URL = "https://m.v.qq.com/";
+    const val IQIYI_URL = "https://m.iqiyi.com/";
+    const val QIDIAN_URL = "https://m.qidian.com/";
+    const val SEARCH_HOT_URL = "https://top.baidu.com/board?tab=realtime&platform=wise";
+    const val QUARK_RANK_URL = "https://quark.sm.cn/api/rest?method=Novelnew.home&format=html&schema=v2&gender=male&cate=%E5%85%A8%E9%83%A8&rank=rank_hot&bucket=rank_new_nopic=on&novelrank_new=on&uc_biz_str=qk_enable_gesture:true|OPT:W_ENTER_ANI@1|OPT:TOOLBAR_STYLE@0|OPT:W_PAGE_REFRESH@0|OPT:BACK_BTN_STYLE@0|OPT:IMMERSIVE@1&uc_param_str=dnntnwvepffrbijbprsvchgputdemennosstodcaaapcgidsdieinipi&from=kkframenew_novel_sccs";
 
     enum class SumoTopic(internal val topicStr: String) {
         HELP("faq-android"),

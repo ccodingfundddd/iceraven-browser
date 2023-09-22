@@ -340,4 +340,6 @@
 
     <!-- Material Design colors -->
     <color name="material_scrim_color">#52000000</color>
+
+    <color name="update_theme_color">#00416A</color>
 </resources>

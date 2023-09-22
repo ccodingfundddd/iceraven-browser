@@ -27,6 +27,18 @@
     <!-- Name for the Pocket product -->
     <string name="pocket_product_name" translatable="false">Pocket</string>
 
+    <string name="default_top_site_bing" translatable="false">Bing</string>
+    <string name="default_top_site_toutiao" translatable="false">今日头条</string>
+    <string name="default_top_site_zhihu" translatable="false">知乎</string>
+    <string name="default_top_site_greasy_fork" translatable="false">Greasy Fork</string>
+    <string name="default_top_site_tencent_video" translatable="false">腾讯视频</string>
+    <string name="default_top_site_iqiyi" translatable="false">爱奇艺</string>
+    <string name="default_top_site_qidian" translatable="false">起点中文</string>
+    <string name="default_top_site_search_hot" translatable="false">全网热搜</string>
+    <string name="default_top_site_quark_rank" translatable="false">夸克榜单</string>
+
+
+
     <!-- Secret Settings Strings -->
     <!-- Label for the secret settings preference -->
     <string name="preferences_debug_settings">Secret Settings</string>

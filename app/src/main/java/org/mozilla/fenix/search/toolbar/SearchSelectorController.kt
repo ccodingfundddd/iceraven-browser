@@ -5,11 +5,14 @@
 package org.mozilla.fenix.search.toolbar
 
 import androidx.navigation.NavController
+import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.NavGraphDirections
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.BrowserAnimator
+import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.nav
+import org.mozilla.fenix.ext.telemetryName
 
 /**
  * An interface that handles the view manipulation of the search selector menu.
@@ -43,6 +46,11 @@ class DefaultSearchSelectorController(
                     sessionId = null,
                     searchEngine = item.searchEngine.id,
                 )
+
+                //设置为默认引擎
+                activity.components.useCases.searchUseCases.selectSearchEngine(item.searchEngine)
+                Events.defaultEngineSelected.record(Events.DefaultEngineSelectedExtra(item.searchEngine.telemetryName()))
+
                 navController.nav(
                     R.id.homeFragment,
                     directions,

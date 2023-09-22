@@ -158,6 +158,10 @@ allprojects {
                 }
             }
         }
+
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.aliyun.com/repository/centra' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {

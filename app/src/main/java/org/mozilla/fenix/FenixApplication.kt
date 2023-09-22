@@ -20,6 +20,12 @@ import androidx.core.content.getSystemService
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.work.Configuration.Builder
 import androidx.work.Configuration.Provider
+import com.umeng.analytics.MobclickAgent
+import com.umeng.commonsdk.UMConfigure
+import com.xuexiang.xupdate.XUpdate
+import com.xuexiang.xupdate.entity.UpdateError.ERROR.CHECK_NO_NEW_VERSION
+import com.xuexiang.xupdate.utils.UpdateUtils
+import com.xuexiang.xutil.tip.ToastUtils
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -109,6 +115,7 @@ import org.mozilla.fenix.session.VisibilityLifecycleCallback
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.utils.Settings.Companion.TOP_SITES_PROVIDER_MAX_THRESHOLD
 import org.mozilla.fenix.wallpapers.Wallpaper
+import org.mozilla.fenix.xupdate.OKHttpUpdateHttpService
 import java.util.UUID
 import java.util.concurrent.TimeUnit
 
@@ -184,6 +191,35 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         GlobalScope.launch(Dispatchers.IO) {
             PerfStartup.applicationOnCreate.accumulateSamples(listOf(durationMillis))
         }
+
+        initUmeng()
+        initUpdate()
+    }
+
+    fun initUpdate() {
+        XUpdate.get()
+            .debug(false)
+            .isWifiOnly(false) // 默认设置只在wifi下检查版本更新
+            .isGet(true) // 默认设置使用get请求检查版本
+            .isAutoMode(false) // 默认设置非自动模式，可根据具体使用配置
+            .param(
+                "versionCode",
+                UpdateUtils.getVersionCode(this),
+            ) // Set default public request parameters
+            .param("appKey", packageName)
+            .setOnUpdateFailureListener { error ->
+                if (error.code != CHECK_NO_NEW_VERSION) {          // Handling different errors
+                    //ToastUtils.toast(error.toString());
+                }
+            }
+            .supportSilentInstall(false) // 设置是否支持静默安装，默认是true
+            .setIUpdateHttpService(OKHttpUpdateHttpService()) //  这个必须设置！实现网络请求功能。
+            .init(this)
+    }
+
+    fun initUmeng() {
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "")
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
     }
 
     @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
@@ -258,7 +294,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             val megazordSetup = finishSetupMegazord()
 
             setDayNightTheme()
-            components.strictMode.enableStrictMode(true)
+            components.strictMode.enableStrictMode(false)
             warmBrowsersCache()
 
             initializeWebExtensionSupport()

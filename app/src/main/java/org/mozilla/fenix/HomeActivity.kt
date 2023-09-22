@@ -10,6 +10,7 @@ import android.content.Intent
 import android.content.Intent.ACTION_MAIN
 import android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
 import android.content.res.Configuration
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -40,6 +41,8 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.xuexiang.xupdate.XUpdate
+import com.xuexiang.xutil.resource.ResUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -395,6 +398,14 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         components.notificationsDelegate.bindToActivity(this)
 
         StartupTimeline.onActivityCreateEndHome(this) // DO NOT MOVE ANYTHING BELOW HERE.
+
+        XUpdate.newBuild(this@HomeActivity)
+            .updateUrl("https://my-browser.bj.bcebos.com/u.json")
+            .promptThemeColor(ResUtils.getColor(R.color.update_theme_color))
+            .promptButtonTextColor(Color.WHITE)
+            .promptTopDrawable(ResUtils.getDrawable(this@HomeActivity, R.mipmap.bg_update_top))
+            .promptWidthRatio(0.7F)
+            .update();
     }
 
     /**

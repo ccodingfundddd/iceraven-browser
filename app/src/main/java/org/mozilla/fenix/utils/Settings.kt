@@ -469,7 +469,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var openHomepageAfterFourHoursOfInactivity by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_start_on_home_after_four_hours),
-        default = true,
+        default = false,
     )
 
     /**
@@ -477,7 +477,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var alwaysOpenTheHomepageWhenOpeningTheApp by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_start_on_home_always),
-        default = false,
+        default = true,
     )
 
     /**
@@ -1524,7 +1524,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     var showRecentTabsFeature by lazyFeatureFlagPreference(
         appContext.getPreferenceKey(R.string.pref_key_recent_tabs),
         featureFlag = true,
-        default = { homescreenSections[HomeScreenSection.JUMP_BACK_IN] == true },
+        default = { homescreenSections[HomeScreenSection.JUMP_BACK_IN] == false },
     )
 
     /**
@@ -1532,7 +1532,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var showRecentBookmarksFeature by lazyFeatureFlagPreference(
         appContext.getPreferenceKey(R.string.pref_key_recent_bookmarks),
-        default = { homescreenSections[HomeScreenSection.RECENTLY_SAVED] == true },
+        default = { homescreenSections[HomeScreenSection.RECENTLY_SAVED] == false },
         featureFlag = true,
     )
 

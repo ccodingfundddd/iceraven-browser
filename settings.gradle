@@ -25,6 +25,7 @@ include ':app'
 include ':mozilla-detekt-rules'
 include ':mozilla-lint-rules'
 include ':benchmark'
+include ':xupdate-lib'
 
 gradle.projectsLoaded { ->
     // Disables A-C tests and lint when building Fenix.

@@ -510,24 +510,43 @@ class Core(
                 } else {
                     defaultTopSites.add(
                         Pair(
-                            context.getString(R.string.default_top_site_google),
-                            SupportUtils.GOOGLE_URL,
+                            context.getString(R.string.default_top_site_baidu),
+                            SupportUtils.BAIDU_URL,
                         ),
                     )
 
-                    if (LocaleManager.getSelectedLocale(context).language == "en") {
-                        defaultTopSites.add(
-                            Pair(
-                                context.getString(R.string.pocket_pinned_top_articles),
-                                SupportUtils.POCKET_TRENDING_URL,
-                            ),
-                        )
-                    }
+                    defaultTopSites.add(
+                        Pair(
+                            context.getString(R.string.default_top_site_toutiao),
+                            SupportUtils.TOUTIAO_URL,
+                        ),
+                    )
 
                     defaultTopSites.add(
                         Pair(
-                            context.getString(R.string.default_top_site_wikipedia),
-                            SupportUtils.WIKIPEDIA_URL,
+                            context.getString(R.string.default_top_site_zhihu),
+                            SupportUtils.ZHIHU_URL,
+                        ),
+                    )
+
+                    defaultTopSites.add(
+                        Pair(
+                            context.getString(R.string.default_top_site_tencent_video),
+                            SupportUtils.TENCENT_VIDEO_URL,
+                        ),
+                    )
+
+                    defaultTopSites.add(
+                        Pair(
+                            context.getString(R.string.default_top_site_search_hot),
+                            SupportUtils.SEARCH_HOT_URL,
+                        ),
+                    )
+
+                    defaultTopSites.add(
+                        Pair(
+                            context.getString(R.string.default_top_site_quark_rank),
+                            SupportUtils.QUARK_RANK_URL,
                         ),
                     )
                 }

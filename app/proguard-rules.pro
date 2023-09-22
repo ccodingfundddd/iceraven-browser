@@ -55,3 +55,23 @@
 # Keep Android Lifecycle methods
 # https://bugzilla.mozilla.org/show_bug.cgi?id=1596302
 -keep class androidx.lifecycle.** { *; }
+
+# umeng
+-keep class com.umeng.** {*;}
+-keep class org.repackage.** {*;}
+-keep class com.uyumao.** { *; }
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep public class io.github.browsercore.R$*{
+public static final int *;
+}
+
+#xupdate
+-keep class com.xuexiang.xupdate.entity.** { *; }
+#注意，如果你使用的是自定义Api解析器解析，还需要给你自定义Api实体配上混淆，如下是本demo中配置的自定义Api实体混淆规则：
+-keep class com.xuexiang.xupdatedemo.entity.** { *; }

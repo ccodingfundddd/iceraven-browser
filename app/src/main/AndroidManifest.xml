@@ -43,6 +43,7 @@
     <application
         android:name=".FenixApplication"
         android:allowBackup="false"
+        android:largeHeap="true"
         android:extractNativeLibs="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -373,6 +374,11 @@
                 android:value="androidx.startup"
                 tools:node="remove" />
         </provider>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="64e40cba5488fe7b3afa2b0c" />
+
     </application>
 
 </manifest>
